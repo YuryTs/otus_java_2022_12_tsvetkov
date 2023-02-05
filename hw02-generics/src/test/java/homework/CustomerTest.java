@@ -69,6 +69,7 @@ class CustomerTest {
         Map.Entry<Customer, String> biggestScore = customerService.getNext(customer1);
         assertThat(biggestScore.getKey()).isEqualTo(customer3);
 
+
         Map.Entry<Customer, String> notExists = customerService.getNext(new Customer(100, "Not exists", 20000));
         assertThat(notExists).isNull();
 
