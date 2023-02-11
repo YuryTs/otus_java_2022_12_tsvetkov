@@ -12,7 +12,11 @@
 | Time work, ms         | OutOfMemoryError | 24 518 | 17 828 | 19 927 | 20 210 |
 | Throughput ,%         |        --        |  69,3  |  68,3  |  67,1  | 66,2   | 
 | Avg Pause GC Time, ms |        --        |  31,9  |  85,5  |  119   | 125    |
+<<<<<<< HEAD
 | Max Pause GC Time, ms |        --        |  145   |  229   |  116  | 529    |
+=======
+| Max Pause GC Time, ms |        --        |  145   |  229   |  1162  | 529    |
+>>>>>>> 967a33a (Made HW04-GC final)
 | Young GC, times       |        --        |  227   |   62   |   53   | 52     |
 | Remark, times         |        --        |   19   |   5    |   3    | 2      |
 | Cleanup, times        |        --        |   19   |   5    |   3    | 2      |
