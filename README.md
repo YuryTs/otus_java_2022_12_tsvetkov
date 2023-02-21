@@ -6,3 +6,6 @@
 ### Студент
 Юрий Цветков<br>
 * hw02-generics
+* hw03-reflection
+* hw04-gc
+* hw05-bytecode
