@@ -1,13 +1,12 @@
 package homework;
 
-public class BanknoteImpl implements Banknote {
+public class BanknoteImpl {
     private final NominalBanknote nominal;
 
     public BanknoteImpl(NominalBanknote nominal) {
         this.nominal = nominal;
     }
 
-    @Override
     public NominalBanknote getNominal() {
         return nominal;
     }

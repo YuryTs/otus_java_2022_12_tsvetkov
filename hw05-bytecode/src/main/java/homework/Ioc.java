@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Ioc {
     public Ioc() {
@@ -20,9 +21,17 @@ public class Ioc {
         private final List<String> methodsToProxied = new ArrayList<>();
 
         DemoInvocationHandler(TestLogging testLogging) {
-            Arrays.stream(testLogging.getClass().getDeclaredMethods()).filter(method -> method.isAnnotationPresent(Log.class))
+            Arrays.stream(testLogging.getClass().getDeclaredMethods())
+                    .filter(method -> method.isAnnotationPresent(Log.class))
                     .forEach(method -> methodsToProxied.add(method.getName() + Arrays.toString(method.getParameters())));
             this.testLogging = testLogging;
+
+            Consumer<Method> consumer = new Consumer<>() {
+                @Override
+                public void accept(Method method) {
+                    methodsToProxied.add(method.getName() + Arrays.toString(method.getParameters()));
+                }
+            };
         }
 
         @Override

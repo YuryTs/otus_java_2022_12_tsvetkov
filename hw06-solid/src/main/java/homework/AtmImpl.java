@@ -7,28 +7,33 @@ import java.util.Map;
 
 public class AtmImpl implements ATM{
 
-    private final MoneyBankomat moneyBankomat;
+    private final MoneyBankomatImpl moneyBankomatImpl;
 
     public AtmImpl(Map<NominalBanknote, Integer> money) {
-        moneyBankomat = new MoneyBankomat();
+        moneyBankomatImpl = new MoneyBankomatImpl();
         money.forEach(this::putBanknotes);
     }
 
     @Override
     public void putBanknotes(NominalBanknote denomination, int quantity) {
         CellImpl atmCell = new CellImpl(denomination, quantity);
-        moneyBankomat.addCellToVault(atmCell);
+        moneyBankomatImpl.addCellToVault(atmCell);
     }
 
     @Override
-    public List<Banknote> getBanknotes(int amount) {
+    public List<BanknoteImpl> getBanknotes(int amount) {
         if (amount == 0) {
             throw new RuntimeException("Запрашиваемая сумма должна быть больше 0");
         }
         return getMoneyFromAtmRecursively(new ArrayList<>(), amount);
     }
 
-    private List<Banknote> getMoneyFromAtmRecursively(List<Banknote> money, int resultAmount) {
+    @Override
+    public int getBalance() {
+        return moneyBankomatImpl.getMoneyBankomatBalance();
+    }
+
+    private List<BanknoteImpl> getMoneyFromAtmRecursively(List<BanknoteImpl> money, int resultAmount) {
         if (resultAmount == 0) {
             return money;
         } else if (resultAmount < 0) {
@@ -39,7 +44,7 @@ public class AtmImpl implements ATM{
             throw new RuntimeException("В банкомате нет денег");
         }
 
-        Banknote finalTempBanknote = getClosestToAmountBanknote(resultAmount);
+        BanknoteImpl finalTempBanknote = getClosestToAmountBanknote(resultAmount);
         if (finalTempBanknote == null) {
             recoverMoneyBack(money);
             throw new RuntimeException("Данная сумма не может быть выдана банкоматом");
@@ -50,8 +55,8 @@ public class AtmImpl implements ATM{
         return getMoneyFromAtmRecursively(money, resultAmount);
     }
 
-    private int decreaseBanknoteQuantityAndAddItIntoList(List<Banknote> money, Banknote finalTempBanknote, int resultAmount) {
-        for (CellImpl cell : moneyBankomat.getCellList()) {
+    private int decreaseBanknoteQuantityAndAddItIntoList(List<BanknoteImpl> money, BanknoteImpl finalTempBanknote, int resultAmount) {
+        for (CellImpl cell : moneyBankomatImpl.getCellList()) {
             if (cell.getBanknote().equals(finalTempBanknote)) {
                 money.add(finalTempBanknote);
                 cell.setQuantity(cell.getQuantity() - 1);
@@ -61,31 +66,22 @@ public class AtmImpl implements ATM{
         return resultAmount;
     }
 
-    private void recoverMoneyBack(List<Banknote> money) {
-        for (Banknote banknote : money) {
-            moneyBankomat.getCellList().stream()
+    private void recoverMoneyBack(List<BanknoteImpl> money) {
+        for (BanknoteImpl banknote : money) {
+            moneyBankomatImpl.getCellList().stream()
                     .filter(c -> c.getBanknote().equals(banknote))
                     .findFirst()
                     .ifPresent(cell -> cell.setQuantity(cell.getQuantity() + 1));
         }
     }
 
-    private Banknote getClosestToAmountBanknote(int amount) {
-        Banknote tempBanknote = null;
-        for (CellImpl cell : moneyBankomat.getCellList()) {
+    private BanknoteImpl getClosestToAmountBanknote(int amount) {
+        BanknoteImpl tempBanknote = null;
+        for (CellImpl cell : moneyBankomatImpl.getCellList()) {
             if (cell.getNominal().getValue() <= amount && cell.getQuantity() > 0) {
                 tempBanknote = cell.getBanknote();
             }
         }
         return tempBanknote;
     }
-
-    @Override
-    public int getBalance() {
-        return moneyBankomat.getMoneyBankomatBalance();
-    }
-
-
-
-
 }

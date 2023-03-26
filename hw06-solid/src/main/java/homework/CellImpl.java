@@ -1,7 +1,7 @@
 package homework;
 
 public class CellImpl{
-    private BanknoteImpl banknote;
+    private final BanknoteImpl banknote;
     private int quantity;
 
     public CellImpl(NominalBanknote nominalBanknote, int quantity) {
@@ -14,7 +14,11 @@ public class CellImpl{
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        if (quantity >= 0) {
+            this.quantity = quantity;
+        }else {
+            throw new RuntimeException("Количество в ячейке не может быть меньше нуля!");
+        }
     }
 
     public NominalBanknote getNominal(){
