@@ -5,5 +5,8 @@ include 'hw03-reflection'
 include 'hw04-gc'
 //include 'hw05-bytecode'
 include 'hw06-solid'
+include 'hw10-jpql'
+include 'hw11-cache'
 include 'hw08-io'
+
 
