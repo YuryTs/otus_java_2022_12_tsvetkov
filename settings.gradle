@@ -7,4 +7,6 @@ include 'hw04-gc'
 include 'hw06-solid'
 include 'hw10-jpql'
 include 'hw11-cache'
+include 'hw08-io'
+
 
