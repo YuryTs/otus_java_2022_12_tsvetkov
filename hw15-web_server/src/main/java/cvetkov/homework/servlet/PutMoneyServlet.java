@@ -38,20 +38,16 @@ public class PutMoneyServlet extends HttpServlet {
         int thousandCount = 0;
         if (!req.getParameter("hundred").equals("")){
             hundredCount = Integer.parseInt(req.getParameter("hundred"));
-            atm.putBanknotes(NominalBanknote.HUNDRED, 5);
-            System.out.println("fact balance hundred = " + atm.getBalance());
+            atm.putBanknotes(NominalBanknote.HUNDRED, hundredCount);
         }
         if (!req.getParameter("halfthousand").equals("")){
             halfthousandCount = Integer.parseInt(req.getParameter("halfthousand"));
             atm.putBanknotes(NominalBanknote.HALF_THOUSAND, halfthousandCount);
-            System.out.println("fact balance = halfthousand" + atm.getBalance());
         }
         if (!req.getParameter("thousand").equals("")){
             thousandCount = Integer.parseInt(req.getParameter("thousand"));
             atm.putBanknotes(NominalBanknote.THOUSAND, thousandCount);
-            System.out.println("fact balance = thousand" + atm.getBalance());
         }
-        System.out.println("fact balance = " + atm.getBalance());
         resp.sendRedirect("/putmoney");
     }
 
