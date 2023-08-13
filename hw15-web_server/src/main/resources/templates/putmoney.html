@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PutMoney</title>
+</head>
+<body>
+<h4>Введите количество купюд для внесения на счет:</h4>
+<form action="putmoney" method="post">
+    <label>Номиналом 100р<br/>
+        <input type="number" min="0" value="" name="hundred">
+    </label>
+    <br/>
+    <label>
+        Номиналом 500р<br/>
+        <input type="number" min="0" value=""  name="halfthousand">
+    </label>
+    <br/>
+    <label>
+        Номиналом 1000р<br/>
+        <input type="number" min="0"  value="" name="thousand">
+    </label>
+    <br/><br/>
+    <input type="submit" value="Внести на счёт">
+</form>
+<br/><br/>
+<a href="balance">Показать текущий баланс счета</a>
+</body>
+</html>
