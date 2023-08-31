@@ -1,4 +1,6 @@
-package cvetkov.homework.services;
+package cvetkov.homework.services.impl;
+
+import cvetkov.homework.services.MoneyBankomat;
 
 import java.util.Comparator;
 import java.util.TreeSet;

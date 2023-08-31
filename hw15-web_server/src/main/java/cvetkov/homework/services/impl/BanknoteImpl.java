@@ -1,4 +1,4 @@
-package cvetkov.homework.services;
+package cvetkov.homework.services.impl;
 import cvetkov.homework.model.NominalBanknote;
 public class BanknoteImpl {
     private final NominalBanknote nominal;

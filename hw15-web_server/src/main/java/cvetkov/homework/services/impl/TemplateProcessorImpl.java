@@ -1,5 +1,6 @@
-package cvetkov.homework.services;
+package cvetkov.homework.services.impl;
 
+import cvetkov.homework.services.TemplateProcessor;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;

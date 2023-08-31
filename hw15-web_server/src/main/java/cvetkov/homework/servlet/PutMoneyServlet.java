@@ -1,17 +1,17 @@
 package cvetkov.homework.servlet;
 
 import cvetkov.homework.model.NominalBanknote;
-import cvetkov.homework.services.AtmImpl;
+import cvetkov.homework.services.impl.AtmImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 
 public class PutMoneyServlet extends HttpServlet {
@@ -23,7 +23,8 @@ public class PutMoneyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        byte [] smth = new FileInputStream("/home/cvetkov/IdeaProjects/otus_java_2022_12_tsvetkov/hw15-web_server/src/main/resources/templates/putmoney.html").readAllBytes();
+        String filePath = new File("hw15-web_server/src/main/resources/templates/putmoney.html").getAbsolutePath();
+        byte [] smth = new FileInputStream(filePath).readAllBytes();
         String tmpl = new String(smth, Charset.forName("UTF-8"));
         response.setContentType("text/html");
         response.getWriter().println(tmpl);

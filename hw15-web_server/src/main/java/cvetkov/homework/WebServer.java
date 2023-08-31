@@ -4,10 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cvetkov.homework.dao.InMemoryUserDao;
 import cvetkov.homework.dao.UserDao;
-import cvetkov.homework.model.NominalBanknote;
 import cvetkov.homework.server.AdminWebServer;
 import cvetkov.homework.server.AdminWebServerImpl;
 import cvetkov.homework.services.*;
+import cvetkov.homework.services.impl.AtmImpl;
+import cvetkov.homework.services.impl.TemplateProcessorImpl;
+import cvetkov.homework.services.impl.UserAuthServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +28,7 @@ public class WebServer {
         AdminWebServer server = new AdminWebServerImpl(gson, templateProcessor, authService, atm, userDao);
 
         server.start();
-        log.info("WebServer started!");
+        log.info("WebServer started on port = {}!", server.getPort());
         server.join();
 
     }

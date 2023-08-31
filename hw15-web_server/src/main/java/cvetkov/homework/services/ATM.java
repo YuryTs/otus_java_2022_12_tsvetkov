@@ -2,6 +2,7 @@ package cvetkov.homework.services;
 
 
 import cvetkov.homework.model.NominalBanknote;
+import cvetkov.homework.services.impl.BanknoteImpl;
 
 import java.util.List;
 

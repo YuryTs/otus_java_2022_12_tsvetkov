@@ -1,7 +1,8 @@
-package cvetkov.homework.services;
+package cvetkov.homework.services.impl;
 
 
 import cvetkov.homework.dao.UserDao;
+import cvetkov.homework.services.UserAuthService;
 
 public class UserAuthServiceImpl implements UserAuthService {
 

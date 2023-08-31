@@ -1,13 +1,15 @@
-package cvetkov.homework.services;
+package cvetkov.homework.services.impl;
 
 
 import cvetkov.homework.model.NominalBanknote;
+import cvetkov.homework.services.ATM;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AtmImpl implements ATM{
+public class AtmImpl implements ATM {
 
     private Map<NominalBanknote, Integer> moneyMap = new HashMap<>();
     private final MoneyBankomatImpl moneyBankomatImpl;

@@ -3,11 +3,11 @@ package cvetkov.homework.server;
 import com.google.gson.Gson;
 import cvetkov.homework.dao.UserDao;
 import cvetkov.homework.helpers.FileSystemHelper;
-import cvetkov.homework.services.AtmImpl;
+import cvetkov.homework.services.impl.AtmImpl;
 import cvetkov.homework.services.TemplateProcessor;
 import cvetkov.homework.services.UserAuthService;
-import cvetkov.homework.services.UserAuthServiceImpl;
 import cvetkov.homework.servlet.*;
+import cvetkov.homework.utils.JettyPropertyReader;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -21,7 +21,10 @@ import java.util.Arrays;
 public class AdminWebServerImpl implements AdminWebServer {
     private static final String START_PAGE_NAME = "index.html";
     private static final String COMMON_RESOURCES_DIR = "static";
-    private static final int WEB_SERVER_PORT = 8095;
+
+    private int port;
+
+
 
     private final Server server;
     private final Gson gson;
@@ -31,9 +34,11 @@ public class AdminWebServerImpl implements AdminWebServer {
     private final UserDao userDao;
 
     public AdminWebServerImpl(Gson gson, TemplateProcessor templateProcessor, UserAuthService authService, AtmImpl atm, UserDao userDao) {
+        JettyPropertyReader reader = new JettyPropertyReader();
+        port = reader.getPort();
         this.gson = gson;
         this.templateProcessor = templateProcessor;
-        this.server = new Server(WEB_SERVER_PORT);
+        this.server = new Server(port);
         this.authService = authService;
         this.atm = atm;
         this.userDao = userDao;
@@ -56,6 +61,12 @@ public class AdminWebServerImpl implements AdminWebServer {
     public void stop() throws Exception {
 
     }
+
+    @Override
+    public int getPort() {
+        return port;
+    }
+
     private Server initContext(){
         ResourceHandler resourceHandler = createResourceHandler();
 
