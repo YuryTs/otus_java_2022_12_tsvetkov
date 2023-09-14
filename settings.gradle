@@ -15,5 +15,6 @@ include 'hw15-web_server'
 include 'patterns'
 include 'Synchronized-collections'
 include 'hw09-structural_patterns'
-include 'sinchronize_lecture'
+include 'serialize'
+include 'hw11-serialize'
 
