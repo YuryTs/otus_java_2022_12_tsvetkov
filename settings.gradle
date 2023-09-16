@@ -17,4 +17,8 @@ include 'Synchronized-collections'
 include 'hw09-structural_patterns'
 include 'serialize'
 include 'hw11-serialize'
+include 'sinchronize_lecture'
+include 'hw16-IoC'
+include 'dependecy-injection26'
+
 
