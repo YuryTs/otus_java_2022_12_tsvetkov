@@ -16,4 +16,6 @@ include 'patterns'
 include 'Synchronized-collections'
 include 'hw09-structural_patterns'
 include 'sinchronize_lecture'
+include 'hw16-IoC'
+include 'dependecy-injection26'
 

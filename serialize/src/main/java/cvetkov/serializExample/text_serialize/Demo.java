@@ -26,6 +26,7 @@ public class Demo {
         }
 
         private static Person deserialize (String json) throws IOException {
+            System.out.println(json);
             ObjectMapper objectMapper = new ObjectMapper();
             Person person = objectMapper.readValue(json, Person.class);
             System.out.println("deserialize: " + person);
