@@ -20,6 +20,5 @@ include 'hw11-serialize'
 include 'sinchronize_lecture'
 include 'hw16-IoC'
 include 'dependecy-injection26'
-
-
+include 'hw16-application_context'
 
