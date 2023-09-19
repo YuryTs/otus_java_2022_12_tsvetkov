@@ -1,0 +1,10 @@
+#куда подключаться
+spring:
+  #прописываем подключение
+  datasource:
+    url: jdbc:postgresql://localhost:5430/demoDB
+    username: usr
+    password: pwd
+    #прописываем файлы миграции кот находятся в db/migration
+  flyway:
+    enabled: true #миграции включены

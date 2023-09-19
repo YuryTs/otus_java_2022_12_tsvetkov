@@ -1,0 +1,13 @@
+spring:
+  #прописываем подключение
+  datasource:
+    url: jdbc:postgresql://localhost:5430/demoDB
+    username: usr
+    password: pwd
+    #прописываем файлы миграции кот находятся в db/migration
+  flyway:
+    enabled: true #миграции включены
+#прописывает
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: TRACE #что бы выявить как работает N+1 будем использавать логирование на уровне TRACE (самый высокий уровень логирования что бы смотреть какие запросы направляются в БД)
