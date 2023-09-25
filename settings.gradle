@@ -22,5 +22,6 @@ include 'hw16-IoC'
 include 'dependecy-injection26'
 include 'hw16-application_context'
 include 'L28-springDataJdbc'
-
+include 'hw17-springData'
+include 'testcontainers'
 
