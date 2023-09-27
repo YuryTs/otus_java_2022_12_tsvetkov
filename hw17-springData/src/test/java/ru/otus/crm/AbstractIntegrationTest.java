@@ -1,11 +1,9 @@
 package ru.otus.crm;
 
+import org.junit.ClassRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.utility.DockerImageName;
 
 public abstract class AbstractIntegrationTest {
     private static final Logger logger = LoggerFactory.getLogger(AbstractIntegrationTest.class);
@@ -17,7 +15,6 @@ public abstract class AbstractIntegrationTest {
         public CustomPostgreSQLContainer() {
             super(IMAGE_VERSION);
         }
-
         public static CustomPostgreSQLContainer getInstance() {
             if (container == null) {
                 container = new CustomPostgreSQLContainer();
@@ -28,12 +25,11 @@ public abstract class AbstractIntegrationTest {
         @Override
         public void start() {
             super.start();
-            var url = container.getJdbcUrl() + "&stringtype=unspecified";
-            System.setProperty("app.datasource.demo-db.jdbcUrl", url);
-            System.setProperty("app.datasource.demo-db.username", container.getUsername());
-            System.setProperty("app.datasource.demo-db.password", container.getPassword());
+            System.setProperty("DB_URL", container.getJdbcUrl());
+            System.setProperty("DB_USERNAME", container.getUsername());
+            System.setProperty("DB_PASSWORD", container.getPassword());
 
-            logger.info("postgres in docker started: url={}", url);
+            logger.info("postgres in docker started: url={}", container.getJdbcUrl());
         }
 
         @Override
