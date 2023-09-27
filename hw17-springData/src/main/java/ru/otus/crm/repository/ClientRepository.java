@@ -1,11 +1,11 @@
-package cvetkov.example.crm.repository;
+package ru.otus.crm.repository;
 
-
-import cvetkov.example.crm.model.Client;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
+import ru.otus.crm.model.Client;
 
 import java.util.Optional;
 

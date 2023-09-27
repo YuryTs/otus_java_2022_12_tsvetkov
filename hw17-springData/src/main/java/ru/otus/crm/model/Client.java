@@ -1,4 +1,4 @@
-package cvetkov.example.crm.model;
+package ru.otus.crm.model;
 
 import jakarta.annotation.Nonnull;
 import org.springframework.data.annotation.Id;
@@ -6,13 +6,11 @@ import org.springframework.data.annotation.PersistenceCreator;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.Objects;
-
 @Table("client")
 public class Client {
 
-    @Id
-    private final Long id;
+    @Id//задаем первичный ключ
+    private final Long id;//в отличие от Spring Data JPA не указана автогенерация ключей
     @Nonnull
     private final String name;
 
@@ -68,17 +66,5 @@ public class Client {
                 ", orderColumn=" + orderColumn +
                 ", clientInfo=" + clientDetails +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Client client)) return false;
-        return Objects.equals(id, client.id) && Objects.equals(name, client.name) && Objects.equals(managerId, client.managerId) && Objects.equals(orderColumn, client.orderColumn) && Objects.equals(clientDetails, client.clientDetails);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, managerId, orderColumn, clientDetails);
     }
 }

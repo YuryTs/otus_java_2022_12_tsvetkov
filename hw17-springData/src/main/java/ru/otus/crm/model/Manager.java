@@ -1,4 +1,4 @@
-package cvetkov.example.crm.model;
+package ru.otus.crm.model;
 
 import jakarta.annotation.Nonnull;
 import org.springframework.data.annotation.Id;

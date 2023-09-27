@@ -1,13 +1,12 @@
-package cvetkov.example.crm.repository;
+package ru.otus.crm.repository;
 
-import cvetkov.example.crm.model.TableWithPk;
+import java.util.Optional;
+import javax.annotation.Nonnull;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;
-
-import javax.annotation.Nonnull;
-import java.util.Optional;
+import ru.otus.crm.model.TableWithPk;
 
 
 public interface TableWithPkRepository extends ListCrudRepository<TableWithPk, TableWithPk.Pk> {

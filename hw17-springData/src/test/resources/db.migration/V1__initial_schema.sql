@@ -1,6 +1,6 @@
 create table Manager
 (
-    id    varchar(50) not null primary key
+    id    varchar(50) not null primary key,
     label varchar(50)
 );
 

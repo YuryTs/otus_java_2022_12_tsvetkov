@@ -1,7 +1,7 @@
-package cvetkov.example.crm.repository;
+package ru.otus.crm.repository;
 
-import cvetkov.example.crm.model.Manager;
 import org.springframework.data.repository.ListCrudRepository;
+import ru.otus.crm.model.Manager;
 
 import java.util.List;
 

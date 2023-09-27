@@ -1,4 +1,4 @@
-package cvetkov.example.crm.model;
+package ru.otus.crm.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceCreator;

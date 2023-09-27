@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class ManagerResultSetExtractorClass implements ResultSetExtractor<List<Manager>> {
-//свой кастомный экстрактор в котором итератором пробигаем по каждой и составляем список
+
     @Override
     public List<Manager> extractData(ResultSet rs) throws SQLException, DataAccessException {
         var managerList = new ArrayList<Manager>();
