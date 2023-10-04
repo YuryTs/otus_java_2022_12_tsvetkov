@@ -2,16 +2,19 @@ package homework;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AtmImpl implements ATM{
 
+     private Map<NominalBanknote, Integer> moneyMap = new HashMap<>();
+
     private final MoneyBankomatImpl moneyBankomatImpl;
 
-    public AtmImpl(Map<NominalBanknote, Integer> money) {
+    public AtmImpl() {
         moneyBankomatImpl = new MoneyBankomatImpl();
-        money.forEach(this::putBanknotes);
+        moneyMap.forEach(this::putBanknotes);
     }
 
     @Override

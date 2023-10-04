@@ -5,13 +5,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Map<NominalBanknote, Integer> moneyMap = new HashMap<>();
-        moneyMap.put(NominalBanknote.THOUSAND, 40);
-        moneyMap.put(NominalBanknote.FIFE_THOUSAND, 10);
-        moneyMap.put(NominalBanknote.HUNDRED, 7);
-        moneyMap.put(NominalBanknote.HALF_THOUSAND, 5);
+//        Map<NominalBanknote, Integer> moneyMap = new HashMap<>();
+//        moneyMap.put(NominalBanknote.THOUSAND, 40);
+//        moneyMap.put(NominalBanknote.FIFE_THOUSAND, 10);
+//        moneyMap.put(NominalBanknote.HUNDRED, 7);
+//        moneyMap.put(NominalBanknote.HALF_THOUSAND, 5);
 
-        AtmImpl atm = new AtmImpl(moneyMap);
+        AtmImpl atm = new AtmImpl();
+
+        atm.putBanknotes(NominalBanknote.HUNDRED, 10);
+        atm.putBanknotes(NominalBanknote.HALF_THOUSAND, 10);
+        atm.putBanknotes(NominalBanknote.THOUSAND, 10);
+        atm.putBanknotes(NominalBanknote.FIVE_THOUSAND, 10);
 
         System.out.println("Баланс " + atm.getBalance());
 

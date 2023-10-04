@@ -23,5 +23,8 @@ include 'dependecy-injection26'
 include 'hw16-application_context'
 include 'hw17-springData'
 include 'testcontainers'
+include 'threads'
+include 'L28-springDataJdbc'
+
 
 
