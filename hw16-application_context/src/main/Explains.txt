@@ -1,0 +1,4 @@
+public AppComponentsContainerImpl(Class<?>... initialConfigClasses) {
+: Это объявление конструктора класса AppComponentsContainerImpl.
+Он принимает переменное число аргументов типа Class<?>, что означает, что вы можете передать любое количество аргументов, представляющих классы.
+}

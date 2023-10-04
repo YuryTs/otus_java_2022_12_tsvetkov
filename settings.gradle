@@ -15,4 +15,13 @@ include 'hw15-web_server'
 include 'patterns'
 include 'Synchronized-collections'
 include 'hw09-structural_patterns'
+include 'serialize'
+include 'hw11-serialize'
+include 'sinchronize_lecture'
+include 'hw16-IoC'
+include 'dependecy-injection26'
+include 'hw16-application_context'
+include 'hw17-springData'
+include 'testcontainers'
+
 
