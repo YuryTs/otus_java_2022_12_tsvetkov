@@ -20,14 +20,13 @@ public class ProductDetailsServiceIntegration {
         logger.info("SEND REQUEST FOR PRODUCT_DETAILS-ID: {}", id);
 
         return productDetailsServiceWebClient.get()
-                .uri("/api/v1/details/{id}", id) //указываем куда делать запрос
-                .retrieve()//получить ответ
+                .uri("/api/v1/details/{id}", id)
+                .retrieve()
                 .onStatus(
                         httpStatus -> httpStatus.isError(),
                         clientResponse -> Mono.error(new AppException("PRODUCT_DETAILS_SERVICE_INTEGRATION_ERROR"))
                 )
-                .bodyToMono(ProductDetailsDto.class)//тело ответа сложить в Моно объект но bodyToMono не значит что получим моментально объект
-                //это значит что мы получим объект  в котором через какое то время получим результат
+                .bodyToMono(ProductDetailsDto.class)
                 .log();
     }
 }
